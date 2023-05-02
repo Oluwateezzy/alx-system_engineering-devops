@@ -1,0 +1,24 @@
+
+What is a server
+A server is a computer program or device that provides a service to another computer program and its user, also known as the client. In a data center, the physical computer a server program runs on is also frequently called a server. That machine might be a dedicated server or be used for other purposes.
+What is the role of the domain name?
+The role of the domain name is to replace complex IP address numbers with easily understandable names so humans can remember and communicate them better.
+What type of DNS record www is in www.foobar.com
+The DNS record of www belongs to a subdomain of the www.foobar.com
+What is the role of the web server
+Web servers make Web hosting possible, that is, the possibility of renting a space on a server to store the files of our site.
+What is the role of the application server?
+The application server is the intermediary between browser-based databases and back-end databases, and legacy systems. In many uses, the application server combines or works with a web server (Hypertext Transfer Protocol) and is called a web application server.
+
+
+What is the role of the database?
+The database's role is to organize the information gathered to be easily accessed, managed, and updated. However, not all database management systems work the same. The mechanisms they use to organize data vary from relational databases to object-oriented databases, distributed databases, or cloud databases.
+What is the server using to communicate with the computer of the user requesting the website?
+The server uses the HTTP (Hypertext Transfer Protocol), which enables the transfer of resources and data, such as HTML documents, between the server and the client. In this data exchange, the client initiates the request, which is generally done by a web browser (an operating system or application can also do it) called request, and the server answers are called responses. Between the client and server data exchange, we find numerous entities, collectively called proxies, performing different operations, such as gateways or caches.
+The client-side (the browser) is the one who always initiates the request to the server of the data, such as the HTML and CSS files, never the other way around. Once the server receives the request, it serves the documents as requested by the client, so it can finally present the Web Page.
+
+
+Issues with the simple web infrastructure
+One of the issues of having a simple web infrastructure has to do with the SPOF (Single Point of Failure), where if a component of the system fails, no backup can support the continuity of the functionality of the system, bringing the whole system to a collapse by being unable to operate.
+Also, whenever some structure or node in the system needs to be repaired, the whole system has to be shut down while the maintenance is done. Then, client requests cannot be attended to during this period.
+Overload of traffic can be a risk to the server capacity. This is because there is no possibility to scale the service with additional servers as backup. Leading to a possible breakdown of the web page and client requests as traffic surpasses the server's capacity.
