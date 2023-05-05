@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #configure domain
 
 function check_record {
