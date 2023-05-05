@@ -1,0 +1,39 @@
+#!/bin/bash
+#configure domain
+
+function check_record {
+  local domain=$1
+  local subdomain=$2
+  local record_type=$3
+  local record=$(dig +short $subdomain.$domain $record_type)
+  if [ -z "$record" ]; then
+    echo "The subdomain $subdomain is not a $record_type record"
+  else
+    echo "The subdomain $subdomain is a $record_type record and points to $record"
+  fi
+}
+
+function audit_domain {
+  local domain=$1
+  check_record $domain www A
+  check_record $domain lb-01 A
+  check_record $domain web-01 A
+  check_record $domain web-02 A
+}
+
+function audit_subdomain {
+  local domain=$1
+  local subdomain=$2
+  check_record $domain $subdomain A
+  check_record $domain $subdomain CNAME
+}
+
+if [ $# -eq 1 ]; then
+  audit_domain $1
+elif [ $# -eq 2 ]; then
+  audit_subdomain $1 $2
+else
+  echo "Usage: $0 <domain> [<subdomain>]"
+  exit 1
+fi
+
