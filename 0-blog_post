@@ -1,0 +1,44 @@
+What happens when you type https://www.google.com in your browser and press Enter
+
+Have you ever wondered what happens when you type a URL in your browser and hit Enter? As a software engineer, it is essential to understand the different components involved in the process. In this article, we’ll walk through each step involved in the process of loading a website and explain what happens when you type https://www.google.com in your browser and hit Enter.
+
+DNS request:
+When you enter the URL in your browser, the first step is a DNS (Domain Name System) request. DNS is a system that translates domain names (like google.com) into IP addresses (like 74.125.24.101) that computers can understand. Your browser sends a request to the DNS server to resolve the IP address associated with the URL you entered.
+
+2. TCP/IP:
+
+Once your browser has the IP address of the website, it initiates a TCP/IP (Transmission Control Protocol/Internet Protocol) connection to the server that hosts the website. TCP/IP is the protocol used to establish a connection between your browser and the web server.
+
+3. Firewall:
+
+Before the connection can be established, the request goes through a firewall. A firewall is a security system that protects the network from unauthorized access. The firewall checks the request to ensure that it meets the network’s security policies.
+
+4. HTTPS/SSL:
+
+Once the connection is established, the browser sends an HTTPS (Hypertext Transfer Protocol Secure) request to the server. HTTPS is a secure version of HTTP that encrypts the data being sent between your browser and the server. This is where SSL (Secure Socket Layer) comes in. SSL is a security protocol that encrypts the data being transmitted over the internet. SSL is used to ensure that the communication between the browser and the server is secure.
+
+5. Load-balancer:
+
+The request is then directed to a load balancer, which distributes incoming requests across multiple servers to ensure that no single server gets overloaded. Load balancing improves the performance and availability of websites.
+
+6. Web server:
+
+The request then reaches the web server, which handles the HTTP request from the browser. The web server retrieves the requested files and sends them back to the browser.
+
+7. Application server:
+
+If the website requires dynamic content, the request is forwarded to an application server. The application server generates the dynamic content and sends it back to the web server, which sends it back to the browser.
+
+8. Database:
+
+If the website requires data from a database, the application server retrieves the data from the database, processes it, and sends it back to the web server, which sends it back to the browser.
+
+In conclusion, when you type https://www.google.com in your browser and hit Enter, a lot happens behind the scenes. The DNS request resolves the IP address, the TCP/IP connection is established, the HTTPS/SSL request ensures secure communication, the load balancer distributes requests, the web server handles the HTTP request, the application server generates dynamic content, and the database stores and retrieves data. Understanding how all of these components work together is essential for any software engineer working in web development.
+
+I hope this article has helped you understand the process of loading a website. If you have any questions or comments, feel free to leave them below.
+
+
+
+
+
+
