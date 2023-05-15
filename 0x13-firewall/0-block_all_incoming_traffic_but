@@ -12,7 +12,7 @@ echo -e "configuring UFW...\"
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
-#Allow Outgoing and Deny Incoming
+# Allow Outgoing and Deny Incoming
 sudo ufw allow 22
 sudo ufw allow 80
 sudo ufw allow 443
