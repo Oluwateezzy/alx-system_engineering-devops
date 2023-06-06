@@ -1,18 +1,37 @@
 #!/usr/bin/python3
-"""top ten"""
-import requests
+""" Top ten """
 
 
 def top_ten(subreddit):
-    """top ten"""
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {"User-Agent": "Custom User Agent"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 200:
-        data = response.json()
-        posts = data['data']['children']
-        for post in posts:
-            title = post['data']['title']
-            print(title)
-    else:
+    """
+    print top ten
+    """
+    from requests import get
+
+    url = "https://www.reddit.com/r/{}/hot/.json?limit=10".format(subreddit)
+
+    headers = {'user-agent': 'my-app/0.0.1'}
+
+    r = get(url, headers=headers, allow_redirects=False)
+
+    if r.status_code != 200:
+        print(None)
+        return None
+
+    try:
+        js = r.json()
+
+    except ValueError:
+        print(None)
+        return None
+
+    try:
+
+        data = js.get("data")
+        children = data.get("children")
+        for child in children[:10]:
+            post = child.get("data")
+            print(post.get("title"))
+
+    except:
         print(None)
