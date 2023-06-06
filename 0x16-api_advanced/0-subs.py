@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """reddit"""
-
 import requests
 
 
 def number_of_subscribers(subreddit):
     """number of subscriber"""
+    headers = {'User-Agent': 'Custom User Agent'}
+
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": "Custom User Agent"}
     response = requests.get(url, headers=headers, allow_redirects=False)
+
     if response.status_code == 200:
         data = response.json()
         subscribers = data['data']['subscribers']
