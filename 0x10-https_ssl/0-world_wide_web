@@ -1,39 +1,18 @@
 #!/usr/bin/env bash
-#configure domain
+# write a Bash script that will display information about the subdomains
 
-function check_record {
-  local domain=$1
-  local subdomain=$2
-  local record_type=$3
-  local record=$(dig +short $subdomain.$domain $record_type)
-  if [ -z "$record" ]; then
-    echo "The subdomain $subdomain is not a $record_type record"
-  else
-    echo "The subdomain $subdomain is a $record_type record and points to $record"
-  fi
+dns_config () {
+    script=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    echo "$2 $script" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
-function audit_domain {
-  local domain=$1
-  check_record $domain www A
-  check_record $domain lb-01 A
-  check_record $domain web-01 A
-  check_record $domain web-02 A
-}
-
-function audit_subdomain {
-  local domain=$1
-  local subdomain=$2
-  check_record $domain $subdomain A
-  check_record $domain $subdomain CNAME
-}
-
-if [ $# -eq 1 ]; then
-  audit_domain $1
-elif [ $# -eq 2 ]; then
-  audit_subdomain $1 $2
-else
-  echo "Usage: $0 <domain> [<subdomain>]"
-  exit 1
+if [ "$#" == 1 ]
+then
+  dns_config "$1" "www"
+  dns_config "$1" "lb-01"
+  dns_config "$1" "web-01"
+  dns_config "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+  dns_config "$1" "$2"
 fi
-
