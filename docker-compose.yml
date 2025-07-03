@@ -1,0 +1,6 @@
+services:
+  alxsystemengineeringdevops:
+    image: alxsystemengineeringdevops
+    build:
+      context: .
+      dockerfile: ./Dockerfile
