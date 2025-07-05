@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 # Installs nginx server
 apt-get update
+
 apt-get -y install nginx
+
+# Allow HTTP traffic through firewall
 ufw allow 'Nginx HTTP'
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Hello World!" > /var/www/html/index.html
+
+sed -i 's/listen \[::\]:80 default_server;/listen [::]:80 default_server;/' /etc/nginx/sites-enabled/default
+
 service nginx start
