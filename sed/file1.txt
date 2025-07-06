@@ -1,0 +1,3 @@
+Unix is a family of free and open-source operating systems based on the Linux kernel.
+Operating systems based on Unix are known as Linux distributions or distros.
+Examples include Debian, Ubuntu, Fedora, CentOS, Gentoo, Arch Unix, and many others.
