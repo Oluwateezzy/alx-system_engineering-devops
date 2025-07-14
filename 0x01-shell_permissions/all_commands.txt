@@ -1,0 +1,98 @@
+# Shell Permissions - All Commands Compilation
+
+# 0-iam_betty: Switch to betty user
+su betty
+
+# 1-who_am_i: Display current user
+whoami
+
+# 2-groups: Display groups of current user
+groups
+
+# 3-new_owner: Change owner of hello file to betty
+chown betty hello
+
+# 4-empty: Create empty file named hello
+touch hello
+
+# 5-execute: Add execute permission for owner to hello file
+chmod u+x hello
+
+# 6-multiple_permissions: Add execute permission for owner and group, read permission for others
+chmod ug+x,o+r hello
+
+# 7-everybody: Add execute permission for everyone
+chmod a+x hello
+
+# 8-James_Bond: Set permissions to 007 (no permissions for owner and group, all for others)
+chmod 007 hello
+
+# 9-John_Doe: Set permissions to 753 (rwx for owner, r-x for group, -wx for others)
+chmod 753 hello
+
+# 10-mirror_permissions: Copy permissions from olleh to hello
+chmod --reference=olleh hello
+
+# 11-directories_permissions: Add execute permission to all subdirectories
+sudo chmod -R +111 */
+
+# 12-directory_permissions: Create directory with 751 permissions
+mkdir -m 751 my_dir
+
+# 13-change_group: Change group ownership of hello to school
+chgrp school hello
+
+# 100-change_owner_and_group: Change owner to vincent and group to staff for all files
+chown vincent:staff *
+
+# 101-symbolic_link_permissions: Change owner and group of symbolic link _hello
+chown -h vincent:staff _hello
+
+# 102-if_only: Change owner from guillaume to betty only if current owner is guillaume
+chown --from=guillaume betty hello
+
+# 103-Star_Wars: Connect to Star Wars ASCII movie via telnet
+telnet towel.blinkenlights.nl
+
+
+Project Overview
+This is an ALX shell permissions project containing 19 shell scripts that demonstrate various Linux/Unix file and directory permission management commands.
+
+Commands Categories
+
+User Management:
+•  su betty - Switch to betty user
+•  whoami - Display current user
+•  groups - Display user groups
+
+File Creation:
+•  touch hello - Create empty file
+•  mkdir -m 751 my_dir - Create directory with specific permissions
+
+Permission Modification:
+•  chmod u+x hello - Add execute permission for owner
+•  chmod ug+x,o+r hello - Multiple permissions (owner/group execute, others read)
+•  chmod a+x hello - Execute permission for all users
+•  chmod 007 hello - Octal permissions (James Bond style)
+•  chmod 753 hello - John Doe permissions
+•  chmod --reference=olleh hello - Mirror permissions from another file
+•  sudo chmod -R +111 */ - Recursive execute permissions on subdirectories
+
+Ownership Changes:
+•  chown betty hello - Change file owner
+•  chgrp school hello - Change group ownership
+•  chown vincent:staff * - Change owner and group for all files
+•  chown -h vincent:staff _hello - Change symbolic link ownership
+•  chown --from=guillaume betty hello - Conditional ownership change
+
+Bonus:
+•  telnet towel.blinkenlights.nl - Connect to Star Wars ASCII movie
+
+Key Learning Points
+•  Basic file permission management using chmod
+•  Ownership changes with chown and chgrp
+•  Symbolic vs numeric (octal) permission notation
+•  Recursive operations and conditional changes
+•  User switching and identification commands
+
+The project progressively builds from basic user identification to advanced permission management scenarios, making it an excellent learning resource for shell permissions.
